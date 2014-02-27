@@ -1,0 +1,9 @@
+plugin:
+  has_options: false
+  icon: res_file.png
+
+  resources:
+    - class: Innova\HotPotatoesBundle\Entity\HotPotatoes
+      name: innova_hotpotatoes
+      is_exportable: false
+      icon: res_file.png

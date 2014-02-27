@@ -1,0 +1,11 @@
+services:
+    innova_hotpotatoes.listener.hotpotatoes:
+        class: %innova_hotpotatoes.listener.hotpotatoes.class%
+        calls: 
+            - [setContainer, ["@service_container"]]
+        tags: 
+            - { name: kernel.event_listener, event: open_innova_hotpotatoes,        method: onHotPotatoesOpen }
+            - { name: kernel.event_listener, event: create_form_innova_hotpotatoes, method: onHotPotatoesCreateForm }
+            - { name: kernel.event_listener, event: create_innova_hotpotatoes,      method: onHotPotatoesCreate }
+            - { name: kernel.event_listener, event: delete_innova_hotpotatoes,      method: onHotPotatoesDelete }
+            - { name: kernel.event_listener, event: copy_innova_hotpotatoes,        method: onHotPotatoesCopy }

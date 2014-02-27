@@ -29,6 +29,7 @@ class InnovaHotPotatoesExtension extends Extension
         $loader = new YamlFileLoader($container, $locator);
     
         $loader->load('controllers.yml');
+        $loader->load('listeners.yml');
     
         return $this;
     }
