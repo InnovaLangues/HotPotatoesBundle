@@ -1,0 +1,36 @@
+{
+    "name" : "innova/hotpotatoes-bundle",
+    "description" : "Claroline HotPotatoes Bundle",
+    "type" : "claroline-plugin",
+    "authors" : [{
+            "name" : "Arnaud Bey",
+            "email" : "arnaud.bey@u-grenoble3.fr"
+        }, {
+            "name" : "Axel Penin",
+            "email" : "axel.penin@u-grenoble3.fr"
+        }, {
+            "name" : "Eric Vincent",
+            "email" : "eric.vincent@u-grenoble3.fr"
+        }, {
+            "name" : "Donovan Tengblad",
+            "email" : "donovan.tengblad@u-grenoble3.fr"
+        }
+    ],
+    "keywords" : [
+        "Claroline",
+        "HotPotatoes"
+    ],
+    "homepage" : "http://github.com/InnovaLangues/HotPotatoesBundle",
+    "license" : [
+        "MIT"
+    ],
+    "require" : {
+        "claroline/core-bundle" : ">=2.0.5"
+    },
+    "autoload" : {
+        "psr-0" : {
+            "Innova\\HotPotatoesBundle" : "."
+        }
+    },
+    "target-dir" : "Innova/HotPotatoesBundle"
+}
