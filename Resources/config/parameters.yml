@@ -1,0 +1,3 @@
+parameters:
+    # Controllers
+    innova_hotpotatoes.controller.hotpotatoes.class: Innova\HotPotatoesBundle\Controller\HotPotatoesController

@@ -1,0 +1,3 @@
+services:
+    innova_hotpotatoes.controller.hotpotatoes:
+        class: %innova_hotpotatoes.controller.hotpotatoes.class%

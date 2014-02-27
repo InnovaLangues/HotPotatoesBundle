@@ -1,0 +1,4 @@
+innova_hotpotatoes:
+    resource: "@InnovaHotPotatoesBundle/Controller/"
+    type:     annotation
+    prefix:   /
