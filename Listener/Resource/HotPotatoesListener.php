@@ -11,6 +11,8 @@ use Claroline\CoreBundle\Event\CreateFormResourceEvent;
 use Claroline\CoreBundle\Event\CreateResourceEvent;
 use Claroline\CoreBundle\Event\CopyResourceEvent;
 
+use Innova\HotPotatoesBundle\Entity\HotPotatoes;
+
 /**
  * HotPotatoes Event Listener
  * Used to integrate HotPotatoes to Claroline resource manager
@@ -64,34 +66,30 @@ class HotPotatoesListener extends ContainerAware
      */
     public function onHotPotatoesCreate(CreateResourceEvent $event)
     {
-//         // Create form
-//         $form = $this->container->get('form.factory')->create('innova_path', new Path());
+        // Create form
+        $form = $this->container->get('form.factory')->create('innova_hotpotatoes', new HotPotatoes());
         
-//         // Try to prcess form
-//         $request = $this->container->get('request');
-//         $form->handleRequest($request);
-
-//         if ($form->isValid()) {
-//             $path = $form->getData();
-
-//             $path->initializeStructure();
+        $formHandler = $this->container->get('innova_hotpotatoes.form.handler.hotpotatoes');
+        $formHandler->setForm($form);
+        if ($formHandler->process()) {
+            $hotPot = $formHandler->getData();
             
-//             // Send new path to dispatcher through event object
-//             $event->setResources(array ($path));
-//         }
-//         else {
-//             $content = $this->container->get('templating')->render(
-//                 'ClarolineCoreBundle:Resource:createForm.html.twig',
-//                 array(
-//                     'form' => $form->createView(),
-//                     'resourceType' => 'innova_path'
-//                 )
-//             );
+            // Send new hot potatoes to dispatcher through event object
+            $event->setResources(array ($hotPot));
+        }
+        else {
+            $content = $this->container->get('templating')->render(
+                'ClarolineCoreBundle:Resource:createForm.html.twig',
+                array(
+                    'form' => $form->createView(),
+                    'resourceType' => 'innova_hotpotatoes'
+                )
+            );
 
-//             $event->setErrorFormContent($content);
-//         }
+            $event->setErrorFormContent($content);
+        }
         
-//         $event->stopPropagation();
+        $event->stopPropagation();
     }
 
     /**
@@ -100,19 +98,19 @@ class HotPotatoesListener extends ContainerAware
      */
     public function onHotPotatoesCreateForm(CreateFormResourceEvent $event)
     {
-//         // Create form
-//         $form = $this->container->get('form.factory')->create('innova_path', new Path());
+        // Create form
+        $form = $this->container->get('form.factory')->create('innova_hotpotatoes', new HotPotatoes());
         
-//         $content = $this->container->get('templating')->render(
-//             'ClarolineCoreBundle:Resource:createForm.html.twig',
-//             array(
-//                 'form' => $form->createView(),
-//                 'resourceType' => 'innova_path'
-//             )
-//         );
+        $content = $this->container->get('templating')->render(
+            'ClarolineCoreBundle:Resource:createForm.html.twig',
+            array(
+                'form' => $form->createView(),
+                'resourceType' => 'innova_hotpotatoes'
+            )
+        );
 
-//         $event->setResponseContent($content);
-//         $event->stopPropagation();
+        $event->setResponseContent($content);
+        $event->stopPropagation();
     }
 
     /**
@@ -121,7 +119,6 @@ class HotPotatoesListener extends ContainerAware
      */
     public function onHotPotatoesDelete(DeleteResourceEvent $event)
     {
-
         $event->stopPropagation();
     }
 

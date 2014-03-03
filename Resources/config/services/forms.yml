@@ -1,0 +1,11 @@
+services:
+    # Form types
+    innova_hotpotatoes.form.type.hotpotatoes:
+        class: %innova_hotpotatoes.form.type.hotpotatoes.class%
+        tags:
+          - { name: form.type, alias: innova_hotpotatoes }
+          
+    # Form handlers
+    innova_hotpotatoes.form.handler.hotpotatoes: 
+        class: %innova_hotpotatoes.form.handler.hotpotatoes.class%
+        scope: request

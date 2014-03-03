@@ -1,3 +1,9 @@
 parameters:
-    # Controllers
+    # Listeners
     innova_hotpotatoes.listener.hotpotatoes.class: Innova\HotPotatoesBundle\Listener\Resource\HotPotatoesListener
+    
+    # Form types
+    innova_hotpotatoes.form.type.hotpotatoes.class: Innova\HotPotatoesBundle\Form\Type\HotPotatoesType
+    
+    # Form handlers
+    innova_hotpotatoes.form.handler.hotpotatoes.class: Innova\HotPotatoesBundle\Form\Handler\HotPotatoesHandler
